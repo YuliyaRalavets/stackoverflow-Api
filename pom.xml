@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>stackoverflow</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.6.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>4.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.13.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.12.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-schema-validator</artifactId>
+      <version>5.2.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>1.10.0</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+        <configuration>
+          <!-- force 7-bit default encoding to ensure that nothing depends on it -->
+          <argLine>-Dfile.encoding=UTF-8</argLine>
+          <!-- Uncomment it if you don't want your build to be failed in case of test errors -->
+          <testFailureIgnore>true</testFailureIgnore>
+          <suiteXmlFiles>
+            <!--suppress UnresolvedMavenProperty -->
+            <xmlFile>${basedir}/src/test/resources/${xml}.xml</xmlFile>
+          </suiteXmlFiles>
+          <!-- ADD working directory to get TestNG know we to find suite files -->
+          <workingDirectory>./</workingDirectory>
+          <properties>
+            <property>
+              <name>usedefaultlisteners</name>
+              <value>false</value>
+            </property>
+          </properties>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

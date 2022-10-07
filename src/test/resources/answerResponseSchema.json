@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "object",
+            "properties": {
+              "reputation": {
+                "type": "number"
+              },
+              "user_id": {
+                "type": "number"
+              },
+              "user_type": {
+                "type": "string"
+              },
+              "profile_image": {
+                "type": "string"
+              },
+              "display_name": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "accept_rate": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "reputation",
+              "user_id",
+              "user_type",
+              "profile_image",
+              "display_name",
+              "link"
+            ]
+          },
+          "is_accepted": {
+            "type": "boolean"
+          },
+          "score": {
+            "type": "number"
+          },
+          "last_activity_date": {
+            "type": "number"
+          },
+          "creation_date": {
+            "type": "number"
+          },
+          "answer_id": {
+            "type": "number"
+          },
+          "question_id": {
+            "type": "number"
+          },
+          "content_license": {
+            "type": "string"
+          },
+          "last_edit_date": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "owner",
+          "is_accepted",
+          "score",
+          "last_activity_date",
+          "creation_date",
+          "answer_id",
+          "question_id",
+          "content_license"
+        ]
+      }
+    },
+    "has_more": {
+      "type": "boolean"
+    },
+    "backoff": {
+      "type": "number"
+    },
+    "quota_max": {
+      "type": "number"
+    },
+    "quota_remaining": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "items",
+    "has_more",
+    "backoff",
+    "quota_max",
+    "quota_remaining"
+  ]
+}
